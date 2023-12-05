@@ -1,0 +1,33 @@
+class Solution {
+    public int countPrefixes(String[] words, String s) {
+        String m="";
+        ArrayList<String> list=new ArrayList<>();
+        for(int i=0;i<s.length();i++){
+            m=m+(s.charAt(i)+"");
+            list.add(m);
+        }
+        int count=0;
+
+        for(int i=0;i<list.size();i++){
+            for(int j=0;j<words.length;j++){
+                if(list.get(i).equals(words[j])){
+                    count++;
+                }
+
+            }
+        }
+        return count;
+    }
+}
+
+
+//better solution we can use startsWith function to check if it starts with the elements of the words array
+// class Solution {
+//     public int countPrefixes(String[] words, String s) {
+//         int count=0;
+//         for(String word: words){
+//             if(s.startsWith(word)) count++;
+//         }
+//         return count;
+//     }
+// }
